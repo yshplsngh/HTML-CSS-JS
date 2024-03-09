@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Project</title>
+</head>
+<body>
+<!--    main block start-->
+
+    <section class="main-sec op">
+        <div class="container container-sm op mt-5 pt-4 text-center">
+            <h3 class="op text-center my-2 mt-3">Simple,traffic-based pricing</h3>
+            <p class="op text-center para mb-5 bg-c pb-4">Sign-up for our 30-day trial. No credit card required</p>
+            <div class="box op p-0 container">
+                <div class="p-5 pb-5 boxup">
+                    <div class="d-flex justify-content-between op p-0 align-items-center upper">
+                        <span class="bg-c pgvw op"><output class="op" id="view">100K</output> PAGEVIEWS</span>
+                        <p class="bg-c op m-0"><output class="amount p-0 m-0 op" id="pric">$16.00</output> /month</p>
+                    </div>
+                    <div class="rd op my-4">
+                        <input type="range" min="0" max="4" steps="1" id="slidview"/>
+                    </div>
+                    <div class="d-flex op justify-content-end align-items-center mid">
+                        <span class="bg-c feat op">Monthly Billing</span>
+
+                        <input type="checkbox" id="chex" onchange="func()">
+                        <label for="chex" class="switch"></label>
+
+                        <span class="bg-c feat op m-0">Yearly Billing</span>
+                        <span class="dis">25% discount</span>
+                    </div>
+                </div>
+                <hr class="w-100 m-0">
+                <div class="d-flex justify-content-between op p-4 px-5 boxup boxdown">
+                    <div class="bg-c feat op text-start">
+                        <p class="op my-1"><img src="icon-check.svg" alt="check" class="me-2">Unlimited wesbites</p>
+                        <p class="op my-1"><img src="icon-check.svg" alt="check" class="me-2">100% data ownership</p>
+                        <p class="op my-1"><img src="icon-check.svg" alt="check" class="me-2">Email reports</p>
+                    </div>
+                    <button type="button" class="strt my-auto text-white" onclick="increaseSize()">Start my trial</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--    main block end-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="sc.js"></script>
+
+</body>
+</html>

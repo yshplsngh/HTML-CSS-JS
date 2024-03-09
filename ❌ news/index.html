@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      padding: 0;
+      margin: 0;
+
+
+    }
+
+    .parent {
+      position: relative;
+      width: 100%;
+      height: 700px;
+      border: 1px solid black;
+      background-color: hsl(235, 18%, 26%);
+    }
+
+    #inner {
+      /* border: 1px solid red; */
+      width: 55%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 75%;
+      background-color: white;
+      border-radius: 23px;
+      display: flex;
+      /* display: none; */
+    }
+
+    .left {
+      border-radius: 23px;
+      /* border: 1px solid rgb(0, 0, 0); */
+      flex: 60%;
+      box-sizing: border-box;
+      /* text-align: justify; */
+    }
+
+    .leftin {
+      /* border: 1px solid pink; */
+      margin: 50px 45px 0 45px;
+    }
+
+    .left h1 {
+      /* border: 1px solid rgb(0, 0, 0); */
+      font-size: 43px;
+      color: hsl(234, 29%, 20%);
+      margin: 0;
+    }
+
+    .para {
+      margin: 26px 0 0 0;
+      /* border: 1px solid rgb(0, 0, 0); */
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .item {
+      margin-top: 26px;
+      margin-bottom: 26px;
+      /* border: 1px solid rgb(0, 0, 0); */
+    }
+
+    .feat {
+      /* border: 1px solid rgb(0, 0, 0); */
+      display: flex;
+      margin-bottom: 8px;
+    }
+
+    .feat img {
+      width: 17px;
+      /* border: 1px solid rgb(0, 0, 0); */
+      vertical-align: top;
+      margin-right: 4px;
+    }
+
+    .feat p {
+      margin: 0;
+    }
+
+    .elab {
+      font-size: 13px;
+      color: hsl(234, 29%, 20%);
+      font-weight: 600;
+    }
+
+    #email,
+    #email2 {
+      width: 100%;
+      height: 44px;
+      border: 1px solid hsl(231, 7%, 60%);
+      border-radius: 7px;
+      box-sizing: border-box;
+      margin-top: 8px;
+    }
+
+    input {
+      font-size: 15px;
+      padding-left: 10px;
+    }
+
+    #submit,
+    #submit2,
+    #dismiss,#dismiss2 {
+      background-color: hsl(234, 29%, 20%);
+      color: white;
+      width: 100%;
+      height: 44px;
+      border-radius: 7px;
+      box-sizing: border-box;
+      margin-top: 26px;
+      margin-bottom: 26px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    #submit:hover,
+    #submit2:hover,
+    #dismiss:hover,#dismiss2:hover {
+      background-image: linear-gradient(to right, #FF3399, #FF5E17);
+      border: none;
+    }
+
+    .right {
+      border-radius: 23px;
+      /* border: 1px solid rgb(115, 0, 255); */
+      flex: 50%;
+      box-sizing: border-box;
+    }
+
+    .rightin {
+      /* border: 1px solid rgb(115, 0, 255); */
+      margin: 5% auto auto 5%;
+      width: 90%;
+      height: 90%;
+      box-sizing: border-box;
+    }
+    .rightin img {
+      width: 100%;
+      height: 100%;
+    }
+
+    #mobile {
+      display: none;
+    }
+    @media (max-width:1420px){
+      #inner {
+        width: 60%;
+      }
+    }
+
+    @media (max-width:1220px) {
+      #inner {
+        width: 67%;
+      }
+    }
+
+    @media (max-width:1120px) {
+      #inner {
+        width: 75%;
+      }
+    }
+
+    @media (max-width:950px) {
+      #inner {
+        width: 90%;
+      }
+    }
+
+    @media (max-width:830px) {
+
+      #inner {
+        width: 100%;
+      }
+    }
+
+    @media (max-width:720px) {
+      #inner {
+        display: none;
+      }
+      #sucweb{
+        display: none;
+      }
+      #mobile {
+        display: block;
+        background-color: white;
+      } 
+    }
+
+    .main-image {
+      width: 100%;
+    }
+
+    #sucmob {
+      display: none;
+      background-color: white;
+      width: 90%;
+      height: 100vh;
+      padding: 30px;
+      border: 1px solid red;
+    }
+
+    #sucweb {
+      display: none;
+      border: 1px solid red;
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 400px;
+      background-color: white;
+      border-radius: 23px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div id="inner">
+      <div class="left">
+        <div class="leftin">
+          <h1>Stay updated!</h1>
+          <p class="para">Join 60000+ product manager receiving monthly updates on:</p>
+          <div class="item">
+            <span class="feat">
+              <img src="assets/images/icon-list.svg" alt="">
+              <p class="feat-text">Product discovery and building whats matters</p>
+            </span>
+            <span class="feat">
+              <img src="assets/images/icon-list.svg" alt="">
+              <p class="feat-text">Measuring to ensure updates are a success</p>
+            </span>
+            <span class="feat">
+              <img src="assets/images/icon-list.svg" alt="">
+              <p class="feat-text">And much more!</p>
+            </span>
+          </div>
+          <span class="elab">Email address</span><br>
+          <input type="email" id="email" placeholder="email@company.com">
+          <button type="submit" id="submit" onclick="func(this.id)">Subscribe to monthly newsletter</button>
+        </div>
+      </div>
+      <div class="right">
+        <div class="rightin">
+          <img src="assets/images/illustration-sign-up-desktop.svg" alt="">
+        </div>
+      </div>
+    </div>
+    <div id="mobile">
+      <img src="assets/images/illustration-sign-up-mobile.svg" alt="" class="main-image">
+      <div class="left">
+        <div class="leftin">
+          <h1>Stay updated!</h1>
+          <p class="para">Join 60000+ product manager receiving monthly updates on:</p>
+          <div class="item">
+            <span class="feat">
+              <img src="assets/images/icon-list.svg" alt="">
+              <p class="feat-text">Product discovery and building whats matters</p>
+            </span>
+            <span class="feat">
+              <img src="assets/images/icon-list.svg" alt="">
+              <p class="feat-text">Measuring to ensure updates are a success</p>
+            </span>
+            <span class="feat">
+              <img src="assets/images/icon-list.svg" alt="">
+              <p class="feat-text">And much more!</p>
+            </span>
+          </div>
+          <span class="elab">Email address</span><br>
+          <input type="email" id="email2" placeholder="email@company.com">
+          <button type="submit" id="submit2" onclick="func(this.id)">Subscribe to monthly newsletter</button>
+        </div>
+      </div>
+    </div>
+    <div id="sucmob">
+      <img src="assets/images/icon-success.svg" alt="">
+      <h1>Thanks for subscribing!</h1>
+      <p>A confirmation email has been sent to <strong id="idd2"></strong>. Please open it and click the button inside to confirm your
+        subscription</p>
+      <button type="submit" id="dismiss2" onClick="window.location.reload();">Dismiss message</button>
+    </div>
+    <div id="sucweb">
+      <img src="assets/images/icon-success.svg" alt="">
+      <h1>Thanks for subscribing!</h1>
+      <p>A confirmation email has been sent to <strong id="idd"></strong>. Please open it and click the button inside to confirm your
+        subscription</p>
+      <button type="submit" id="dismiss" onClick="window.location.reload();">Dismiss message</button>
+    </div>
+  </div>
+  <script>
+    function func(name) {
+      var data, type, show, hide,block;
+      if (name == "submit2") {
+        data = document.getElementById("email2").value;
+        type = "email2";
+        show = "sucmob";
+        hide = "mobile";
+        block="idd2";
+
+      } else {
+        data = document.getElementById("email").value;
+        type = "email";
+        show = "sucweb";
+        hide = "inner";
+        block="idd";
+      }
+      console.log(data);
+      var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+      if (reg.test(data) == false) {
+        var da = document.getElementById(type);
+        da.style.borderColor = "red";
+      }
+      else {
+        var da = document.getElementById(hide);
+        da.style.display = "none";
+        var ds = document.getElementById(show);
+        ds.style.display = "block";
+        var as = document.getElementById(block);
+        as.textContent = data;
+      }
+    }
+  </script>
+</body>
+</html>

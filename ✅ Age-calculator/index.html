@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+  <title>Frontend Mentor | Age calculator app</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: Poppins;
+    }
+
+    body {
+      background-color: hsl(0, 0%, 94%);
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      position: fixed;
+      bottom: 0%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    .inside {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      /* border: 0.2px solid red; */
+      padding: 10px;
+      background-color: white;
+      border-radius: 15px 15px 30% 15px;
+    }
+
+    .upper {
+      /* border: 0.2px solid red; */
+      height: auto;
+      display: flex;
+      /* padding: 10px; */
+      margin: 20px;
+    }
+
+    .row {
+      margin-right: 30px;
+    }
+
+    input {
+      width: 130px;
+      height: 52px;
+      font-size: 32px;
+      font-weight: 900;
+      padding: 8px;
+      border-radius: 7px;
+      border: 2px solid hsl(0, 0%, 86%);
+      color: hsl(0, 1%, 44%);
+      outline: none;
+    }
+
+    input:focus {
+      border: 2px solid hsl(259, 100%, 65%);
+      color: black;
+    }
+
+    .col {
+      font-size: small;
+      font-weight: 700;
+      color: hsl(0, 1%, 44%);
+      /* border: 1px solid red; */
+
+    }
+
+    .data {
+      /* border: 0.2px solid red; */
+      font-size: 70px;
+      font-weight: 900;
+      color: hsl(0, 0%, 8%);
+      letter-spacing: 1px;
+      margin: 0px 20px 0px 20px;
+    }
+
+    span {
+      font-size: 70px;
+      color: hsl(259, 100%, 65%);
+      text-shadow: 1px 0 hsl(259, 100%, 65%);
+      font-weight: 900;
+    }
+
+    #years {
+      border-top: 2px solid hsl(0, 0%, 86%);
+      outline: none;
+    }
+
+    #butt {
+      background-image: url(/assets/images/icon-arrow.svg);
+      background-size: 32px 32px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: hsl(259, 100%, 65%);
+      background-position: center;
+      background-repeat: no-repeat;
+      border-style: none;
+      padding: 30px;
+      position: absolute;
+      top: 20%;
+      right: 5%;
+    }
+
+    #butt:hover {
+      background-color: black;
+      cursor: pointer;
+    }
+
+    #warn {
+      display: none;
+      text-align: center;
+
+    }
+
+    @media screen and (max-width: 600px) {
+      .inside {
+        width: 470px;
+        height: 550px;
+      }
+
+      #butt {
+        left: 45%;
+        top: 22%;
+      }
+
+      .upper {
+        margin-bottom: 50px;
+      }
+
+      #years {
+        padding-top: 20px;
+      }
+
+      #warn {
+        text-align: end;
+      }
+
+      input {
+        width: 120px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="inside">
+    <div class="upper">
+      <div class="row">
+        <div class="col">
+          <label for="name">DAY</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="dday" name="username" placeholder="DD">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="name">MONTH</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="mmonth" name="username" placeholder="MM">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="name" id="colday">YEAR</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="yyear" name="username" placeholder="YYYY">
+        </div>
+      </div>
+    </div>
+    <p id="warn"></p>
+    <div class="data" id="years"><span id="yearspan">--</span>years</div>
+    <div class="data" id="months"><span id="monthspan">--</span>months</div>
+    <div class="data" id="days"><span id="dayspan">--</span>days</div>
+    <button id="butt" onclick="myfunc()"></button>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Yashpal singh</a>.
+  </div>
+
+  <script>
+    function myfunc() {
+      const date = new Date();
+      year = date.getFullYear();
+      month = date.getMonth() + 1;
+      day = date.getDate();
+      let dd = document.getElementById("dday").value;
+      let mm = document.getElementById("mmonth").value;
+      let yy = document.getElementById("yyear").value;
+      if (dd.length != 0 && mm.length != 0 && yy.length != 0) {
+        if (yy > year) {
+          const t = "invalid year!"
+          warning(t);
+          return;
+        }
+        if (yy == year && mm > month) {
+          const t = "invalid month!"
+          warning(t);
+          return;
+        }
+        if (yy == year && mm == month && dd > day) {
+          const t = "invalid date!"
+          warning(t);
+          return;
+        }
+        console.log(dd + " " + day);
+        const montharr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const no_of_days = montharr[mm - 1];
+        if (dd > no_of_days) {
+          const t = "invalid day!"
+          warning(t);
+          return;
+        }
+        // logic
+        yearAge = year - yy;
+        if (month >= mm)
+          var monthAge = month - mm;
+        else {
+          yearAge--;
+          var monthAge = 12 + month - mm;
+        }
+
+        if (day >= dd)
+          var dateAge = day - dd;
+        else {
+          monthAge--;
+          var dateAge = 31 + day - dd;
+
+          if (monthAge < 0) {
+            monthAge = 11;
+            yearAge--;
+          }
+        }
+        if ((yearAge > 0) && (monthAge > 0) && (dateAge > 0)) {
+          var y = yearAge;
+          var m = monthAge;
+          var d = dateAge;
+        }
+        else if ((yearAge == 0) && (monthAge == 0) && (dateAge > 0)) {
+          var y = 0;
+          var m = 0;
+          var d = dateAge;
+        }
+        else if ((yearAge > 0) && (monthAge == 0) && (dateAge == 0)) {
+          var y = yearAge;
+          var m = 0;
+          var d = 0;
+        }
+        else if ((yearAge > 0) && (monthAge > 0) && (dateAge == 0)) {
+          var y = yearAge;
+          var m = monthAge;
+          var d = 0;
+        }
+        else if ((yearAge == 0) && (monthAge > 0) && (dateAge > 0)) {
+          var y = 0;
+          var m = monthAge;
+          var d = dateAge;
+        }
+        else if ((yearAge > 0) && (monthAge == 0) && (dateAge > 0)) {
+          var y = yearAge;
+          var m = 0;
+          var d = dateAge;
+        }
+        else if ((yearAge == 0) && (monthAge > 0) && (dateAge == 0)) {
+          var y = 0;
+          var m = monthAge;
+          var d = 0;
+        }
+        else {
+          var y = 0;
+          var m = 0;
+          var d = 0;
+        }
+        var forday = document.getElementById("dayspan");
+        var formonth = document.getElementById("monthspan");
+        var foryear = document.getElementById("yearspan");
+        forday.textContent = d;
+        formonth.textContent = m;
+        foryear.textContent = y;
+        console.log(d + " " + m + " " + y);
+      }
+      else {
+        const t = "-!!-all field required-!!-";
+        warning(t);
+      }
+    }
+    function warning(t) {
+      var labels = document.getElementsByTagName("label");
+      var inputs = document.getElementsByTagName("Input");
+      const collection = document.getElementById("warn");
+      for (var i = 0; i < labels.length; i++) {
+        labels[i].style.color = "red";
+      }
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].style.borderColor = "red";
+      }
+      collection.style.color = "red"
+      collection.style.display = "block";
+      collection.textContent = t;
+    }
+  </script>
+</body>
+
+</html>

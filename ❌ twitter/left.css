@@ -1,0 +1,120 @@
+.twitter{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sidebar{
+    /* border: 1px solid red; */
+    width: 25%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.ticon{
+    position: relative;
+    /* border: 1px solid red; */
+    left: 34%;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* .ticon:hover{
+    border-radius: 50%;
+    background-color: #E1E8ED;
+} */
+.link{
+    position: relative;
+    /* border: 1px solid red; */
+    border-radius: 50px 50px 50px 50px;
+    left: 30%;
+    overflow: hidden;
+    width: fit-content;
+    padding: 12px 15px 12px 15px;
+    transition: all 0.7s;
+}
+.link a{
+    text-decoration: none;
+    font-size: 20px;
+    padding-left: 10px;
+    color: black;
+}
+.link:hover{
+    background-color: #E1E8ED;
+    cursor: pointer;
+}
+img.a{
+    vertical-align:top;
+}
+.tweetbutt{
+    position: relative;
+    /* border: 1px solid red; */
+    left: 30%;
+    overflow: hidden;
+    width: fit-content;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 16px;
+    color: white;
+    font-weight: 700;
+    font-size: 17px;
+    width: 230px;
+    background-color: #1DA1F2;
+    border-radius: 50px 50px 50px 50px;
+    letter-spacing: 1px;
+    border: none;
+    transition: 0.3s;
+}
+.tweetbutt:hover{
+    cursor: pointer;
+    background-color:rgb(20, 131, 201);  
+}
+.emailbox{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    /* border: 1px solid red; */
+    left: 30%;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 14px;
+    width: 250px;
+    border-radius: 50px 50px 50px 50px;
+    transition: all 0.3s;
+    margin-top: 80px;
+    height: 60px;
+}
+.emailbox:hover{
+    background-color: #E1E8ED;
+    cursor: pointer;
+}
+.bpro{
+    border-radius: 50%;
+    /* border: 1px solid red; */
+    margin:9px;
+}
+.bmore{
+    border-radius: 50%;
+    /* border: 1px solid red; */
+    margin: 21px 4px 10px 62px;
+    opacity: 0.8;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    margin-bottom: 9px;
+    margin-top: 9px;
+    margin-left: 7px;
+}
+.name p{
+    margin: 0;
+    /* border: 1px solid red; */
+    padding: 0;
+    font-weight: 700;
+}
+#id{
+    opacity: 0.7;
+}

@@ -1,0 +1,797 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="left.css">
+    <link rel="stylesheet" href="right.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Segoe UI;
+            margin: 0;
+        }
+        .main{
+            flex: 42%;
+            margin-left: 25%;
+        }
+        .headi{
+            /* border: 1px dotted red; */
+            height: 110px;
+            display: block;
+            position: fixed;
+            /* z-index: 1; */
+            top: 0;
+            left: 25%;
+            width: 42%;
+            background-color: rgb(255, 255, 255,0.6);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            /* opacity: 0.9; */
+        }
+        .headup{
+            /* border: 1px solid red; */
+            height: 50%; 
+            font-size: 20px;
+            font-weight: 700;
+            padding: 10px;
+            opacity: 0.8;
+        }
+        .headdown{
+            /* border: 1px solid red; */
+            height: 50%;
+            display: flex;
+            text-align: center;
+        }
+        .foryou , .following{
+            /* border: 1px solid red; */
+            flex: 50%;
+            padding: 13px;
+            font-weight: 700;
+        }
+        .foryou:hover , .following:hover{
+            background-color: #E1E8ED;
+            cursor: pointer;
+        }
+        .con{
+            margin-top: 110px;
+            /* border: 1px solid red; */
+            /* background-color: #E1E8ED; */
+            height: 50px;
+        }
+        /* .card{
+            padding: 10px; 
+            border: 1px solid red;
+            
+        } */
+        /* .card:hover{
+            background-color: #ebecec;;
+            border: 1px solid red;
+        } */
+        .incard{
+            /* background-color: #E1E8ED; */
+            height: fit-content;
+            padding: 10px;
+            border: 1px solid #ebecec;;
+            /* height: 800px; */
+            width: 100%;
+            display: flex;
+            transition: 0.5s all ease 0s;
+            
+        }
+        .incard:hover{
+            transition: 0.5s all ease 0s;
+            background-color: #ebecec;
+        }
+        .carduserpic{
+            border-radius: 50%;
+            /* border: 1px solid red; */
+            flex: 5%;
+        }
+        .carduserpic:hover{
+            opacity: 0.9;
+        }
+        .leftoftweet{
+            /* border: 1px solid rgb(255, 0, 0); */
+            flex: 92%;
+            margin-left: 4px;
+        }
+        .carduserid{
+            /* border: 1px solid red; */
+            display: flex;
+            padding: 0px;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        .carduseridinner{
+            display: flex;
+        }
+        .carduseridinner p{
+            /* border: 1px solid rgb(255, 0, 0); */
+            margin: 0px;
+            padding: 0px;
+            font-weight: 500;
+            /* padding-left: 4px; */
+        }
+        .carduseridinner p:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .carduseridinner img{
+            vertical-align: bottom;
+        }
+        .idi{
+            opacity: 0.5;
+        }
+        .morepic{
+            border-radius: 50%;
+            padding: 5px;
+            transition: 0.5s all ease 0s;
+            /* border: 0.2px solid red; */
+        }
+        /* .morepic:hover{
+            background-color: #cee9f9;
+            transition: 0.5s all ease 0s;
+        } */
+        .posting{
+            border-radius: 4%;
+            cursor: pointer;
+        }
+        .likebar{
+            /* border: 0.2px solid red; */
+            display: flex;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .likebarblock1 , .likebarblock2 , .likebarblock3, .likebarblock4 , .likebarblock5{
+            display: flex;
+            /* border: 0.2px solid rgb(25, 0, 255); */
+            /* margin: 5px; */
+            margin-right: 35px;
+            justify-content: center;
+            transition: 0.5s all ease 0s;
+        }
+        .likebarblock1 p , .likebarblock2 p, .likebarblock3 p, .likebarblock4 p{
+            /* border: 0.2px solid red; */
+            margin: 7px 0px 7px 7px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: 0.5s all ease 0s;
+        }
+        .imgdiv1 , .imgdiv2 , .imgdiv3 , .imgdiv4 , .imgdiv5{
+            border-radius: 50%;
+            /* border: 0.2px solid red; */
+            padding: 5px;
+            transition: 0.5s all ease 0s;
+        }
+        .imgdiv11{
+            /* border: 0.2px solid rgb(0, 0, 0); */
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background-image: url(commentblack.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+        }
+        .likebarblock1:hover .imgdiv11{
+            background-image: url(commentblue.png);
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .likebarblock1:hover p{
+            color: #009cfd;
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .likebarblock2:hover .imgdiv2{
+            background-color: rgb(0, 156, 253,0.1);
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .imgdiv21{
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background-image: url(retweetblack.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+        }
+        .likebarblock2:hover .imgdiv21{
+            background-image: url(retweetgreen.png);
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .likebarblock2:hover p{
+            color: #009cfd;
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .likebarblock1:hover .imgdiv1{
+            background-color: rgb(0, 156, 253,0.1);
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .imgdiv31{
+            /* border: 0.2px solid red; */
+            width: 20px;
+            border-radius: 50%;
+            height: 20px;
+            background-image: url(likeblack.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+        }
+        .likebarblock3:hover .imgdiv31{
+            background-image: url(likepink.png);
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+            cursor: pointer;  
+        }
+        .likebarblock3:hover p{
+            color: #009cfd;
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .likebarblock3:hover .imgdiv3{
+            background-color: rgb(0, 156, 253,0.1);
+            transition: 0.5s all ease 0s;
+            cursor: pointer;  
+        }
+        .imgdiv41{
+            /* border: 0.2px solid red; */
+            width: 20px;
+            border-radius: 50%;
+            height: 20px;
+            background-image: url(viewsblack.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+        }
+        .likebarblock4:hover .imgdiv41{
+            background-image: url(viewsblue.png);
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+            cursor: pointer;  
+        }
+        .likebarblock4:hover p{
+            color: #009cfd;
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .likebarblock4:hover .imgdiv4{
+            background-color: rgb(0, 156, 253,0.1);
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .imgdiv51{
+            /* border: 0.2px solid red; */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-image: url(uploadblack.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+        }
+        .likebarblock5:hover .imgdiv51{
+            background-image: url(uploadblue.png);
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 0.5s all ease 0s;
+            cursor: pointer;  
+        }
+        .likebarblock5:hover p{
+            color: #009cfd;
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .likebarblock5:hover .imgdiv5{
+            background-color: rgb(0, 156, 253,0.1);
+            transition: 0.5s all ease 0s;
+            cursor: pointer; 
+        }
+        .showpara:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="twitter">
+        <div class="sidebar">
+            <img src="twitter.png" alt="twitter" class="ticon" style="height: 31px;">
+            <div class="link">
+                <img src="home.png" alt="home" width="30px" class="a">
+                <a href="#Home"><b>Home</b></a>
+            </div>
+            <div class="link">
+                <img src="hash.png" alt="home" width="30px" class="a">
+                <a href="#Explore">Explore</a>
+            </div>
+            <div class="link">
+                <img src="bell.png" alt="home" width="30px" class="a">
+                <a href="#Notifications">Notifications</a>
+            </div>
+            <div class="link">
+                <img src="message.png" alt="home" width="30px" class="a">
+                <a href="#Messages">Messages</a>
+            </div>
+            <div class="link">
+                <img src="bookmark.png" alt="home" width="30px" class="a">
+                <a href="#bookmark">Bookmarks</a>
+            </div>
+            <div class="link">
+                <img src="verified.png" alt="home" width="30px" class="a">
+                <a href="#twitter blue">Twitter Blue</a>
+            </div>
+            <div class="link">
+                <img src="user.png" alt="home" width="30px" class="a">
+                <a href="#profile">Profile</a>
+            </div>
+            <div class="link">
+                <img src="more.png" alt="home" width="30px" class="a">
+                <a href="#more">More</a>
+            </div>  
+            <button class="tweetbutt">Tweet</button>
+            <div class="emailbox">
+                <img src="java.jpg" alt="java" width="40px" height="40px" class="bpro">
+                <div class="name">
+                    <p>Yashpal Singh</p>
+                    <p id="id">@yshpl</p>
+                </div>
+                <img src="mor.png" alt="more" width="15px" height="15px" class="bmore">
+            </div>
+        </div>
+        <div class="main">
+            <div class="headi">
+                <div class="headup">Home</div>
+                <div class="headdown">
+                    <div class="foryou">For You</div>
+                    <div class="following">Following</div>
+                </div>
+            </div>
+            <div class="con"></div>
+            <div class="card">
+                <div class="incard">
+                    <img src="sixpic.jpeg" alt="java" width="45px" height="45px" class="carduserpic">
+                    <div class="leftoftweet">
+                        <div class="carduserid">
+                            <div class="carduseridinner">
+                                <p>Akhilesh Yadav </p>
+                                <p class="idi">&nbsp @SapaSarkar &middot 32 Apr 1998</p>
+                            </div>
+                            <img src="mor.png" alt="more" width="23px" height="23px" class="morepic">
+                        </div>
+                        <p><b>सपा:</b> हम आपको मोबाइल देंगे, लैपटॉप देंगे, साइकिल देंगे...
+                            <b>जनता:</b> और नौकरी मालिक??
+                            <b>सपा:</b> वो हमारे मामा के साले के भतीजे के लिए है, जबान दे चुके है हम...<b style="color: #009cfd; font-weight: 400;" class="showpara">#chor party</b> </p>
+                        <img src="six.jpeg" alt="post" width="100%" class="posting">
+                        <div class="likebar">
+                            <div class="likebarblock1">
+                                <div class="imgdiv1">
+                                    <div class="imgdiv11"></div>
+                                </div>
+                                <p>1</p>
+                            </div>
+                            <div class="likebarblock2">
+                                <div class="imgdiv2">
+                                    <div class="imgdiv21"></div>
+                                </div>
+                                <p>7</p>
+                            </div>
+                            <div class="likebarblock3">
+                                <div class="imgdiv3">
+                                    <div class="imgdiv31"></div>
+                                </div>
+                                <p>14</p>
+                            </div>
+                            <div class="likebarblock4">
+                                <div class="imgdiv4">
+                                    <div class="imgdiv41"></div>
+                                </div>
+                                <p>4</p>
+                            </div>
+                            <div class="likebarblock5">
+                                <div class="imgdiv5">
+                                    <div class="imgdiv51"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="incard">
+                    <img src="elon.jpg" alt="java" width="45px" height="45px" class="carduserpic">
+                    <div class="leftoftweet">
+                        <div class="carduserid">
+                            <div class="carduseridinner">
+                                <p>Elon Musk <img src="verified.png" alt="verified" width="20px" height="20px"></p>
+                                <p class="idi">@elonmusk &middot  15h</p>
+                            </div>
+                            <img src="mor.png" alt="more" width="23px" height="23px" class="morepic">
+                        </div>
+                        <p>#twitter?</p>
+                        <img src="post.jpg" alt="post" width="100%" class="posting">
+                        <div class="likebar">
+                            <div class="likebarblock1">
+                                <div class="imgdiv1">
+                                    <div class="imgdiv11"></div>
+                                </div>
+                                <p>120</p>
+                            </div>
+                            <div class="likebarblock2">
+                                <div class="imgdiv2">
+                                    <div class="imgdiv21"></div>
+                                </div>
+                                <p>4356</p>
+                            </div>
+                            <div class="likebarblock3">
+                                <div class="imgdiv3">
+                                    <div class="imgdiv31"></div>
+                                </div>
+                                <p>32.3M</p>
+                            </div>
+                            <div class="likebarblock4">
+                                <div class="imgdiv4">
+                                    <div class="imgdiv41"></div>
+                                </div>
+                                <p>120M</p>
+                            </div>
+                            <div class="likebarblock5">
+                                <div class="imgdiv5">
+                                    <div class="imgdiv51"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="incard">
+                    <img src="secondpic.jpg" alt="java" width="45px" height="45px" class="carduserpic">
+                    <div class="leftoftweet">
+                        <div class="carduserid">
+                            <div class="carduseridinner">
+                                <p>Bolta Hindustan <img src="verified.png" alt="verified" width="20px" height="20px"></p>
+                                <p class="idi">@BoltaHindustan &middot  2h</p>
+                            </div>
+                            <img src="mor.png" alt="more" width="23px" height="23px" class="morepic">
+                        </div>
+                        <p>गूगल के दौर में 'मुग़ल का चैप्टर' हटा देने से इतिहास नहीं बदल जाता है : रवीश कुमार</p>
+                        <img src="second.jpeg" alt="post" width="100%" class="posting">
+                        <div class="likebar">
+                            <div class="likebarblock1">
+                                <div class="imgdiv1">
+                                    <div class="imgdiv11"></div>
+                                </div>
+                                <p>14</p>
+                            </div>
+                            <div class="likebarblock2">
+                                <div class="imgdiv2">
+                                    <div class="imgdiv21"></div>
+                                </div>
+                                <p>312</p>
+                            </div>
+                            <div class="likebarblock3">
+                                <div class="imgdiv3">
+                                    <div class="imgdiv31"></div>
+                                </div>
+                                <p>252K</p>
+                            </div>
+                            <div class="likebarblock4">
+                                <div class="imgdiv4">
+                                    <div class="imgdiv41"></div>
+                                </div>
+                                <p>1.2M</p>
+                            </div>
+                            <div class="likebarblock5">
+                                <div class="imgdiv5">
+                                    <div class="imgdiv51"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="incard">
+                    <img src="thirdpic.jpg" alt="java" width="45px" height="45px" class="carduserpic">
+                    <div class="leftoftweet">
+                        <div class="carduserid">
+                            <div class="carduseridinner">
+                                <p>Yogi Adityanath Office <img src="verified.png" alt="verified" width="20px" height="20px"></p>
+                                <p class="idi">@myogioffice &middot  1h</p>
+                            </div>
+                            <img src="mor.png" alt="more" width="23px" height="23px" class="morepic">
+                        </div>
+                        <p>मुख्यमंत्री श्री 
+                            @myogiadityanath
+                             जी महाराज से आज लोक भवन, लखनऊ में 
+                            @WWE
+                             के रेसलर श्री 
+                            @VeerMahaan
+                             जी ने शिष्टाचार भेंट की।</p>
+                        <img src="third.jpeg" alt="post" width="100%" class="posting">
+                        <div class="likebar">
+                            <div class="likebarblock1">
+                                <div class="imgdiv1">
+                                    <div class="imgdiv11"></div>
+                                </div>
+                                <p>14M</p>
+                            </div>
+                            <div class="likebarblock2">
+                                <div class="imgdiv2">
+                                    <div class="imgdiv21"></div>
+                                </div>
+                                <p>401M</p>
+                            </div>
+                            <div class="likebarblock3">
+                                <div class="imgdiv3">
+                                    <div class="imgdiv31"></div>
+                                </div>
+                                <p>25B</p>
+                            </div>
+                            <div class="likebarblock4">
+                                <div class="imgdiv4">
+                                    <div class="imgdiv41"></div>
+                                </div>
+                                <p>70B</p>
+                            </div>
+                            <div class="likebarblock5">
+                                <div class="imgdiv5">
+                                    <div class="imgdiv51"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="incard">
+                    <img src="thirdpic.jpg" alt="java" width="45px" height="45px" class="carduserpic">
+                    <div class="leftoftweet">
+                        <div class="carduserid">
+                            <div class="carduseridinner">
+                                <p>CM Office, GoUP<img src="verified.png" alt="verified" width="20px" height="20px"></p>
+                                <p class="idi">@CMofficeUP &middot  APR 4</p>
+                            </div>
+                            <img src="mor.png" alt="more" width="23px" height="23px" class="morepic">
+                        </div>
+                        <p>प्रदेश में संचालित बेसिक, माध्यमिक, उच्च और प्राविधिक शिक्षण संस्थानों में योग्य शिक्षकों के चयन के लिए अलग-अलग प्राधिकारी, बोर्ड व आयोग गठित हैं।
+
+                            परीक्षा नियामक प्राधिकारी, माध्यमिक शिक्षा सेवा चयन आयोग और उच्चतर शिक्षा सेवा चयन आयोग के अलावा उत्तर प्रदेश लोक सेवा आयोग के .. <b style="color: #009cfd; font-weight: 400;" class="showpara" >show more</b> </p>
+                        <div class="likebar">
+                            <div class="likebarblock1">
+                                <div class="imgdiv1">
+                                    <div class="imgdiv11"></div>
+                                </div>
+                                <p>1K</p>
+                            </div>
+                            <div class="likebarblock2">
+                                <div class="imgdiv2">
+                                    <div class="imgdiv21"></div>
+                                </div>
+                                <p>4M</p>
+                            </div>
+                            <div class="likebarblock3">
+                                <div class="imgdiv3">
+                                    <div class="imgdiv31"></div>
+                                </div>
+                                <p>2K</p>
+                            </div>
+                            <div class="likebarblock4">
+                                <div class="imgdiv4">
+                                    <div class="imgdiv41"></div>
+                                </div>
+                                <p>7M</p>
+                            </div>
+                            <div class="likebarblock5">
+                                <div class="imgdiv5">
+                                    <div class="imgdiv51"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="incard">
+                    <img src="fourthpic.jpg" alt="java" width="45px" height="45px" class="carduserpic">
+                    <div class="leftoftweet">
+                        <div class="carduserid">
+                            <div class="carduseridinner">
+                                <p>President of India <img src="verifiedg.png" alt="verified" width="20px" height="20px"></p>
+                                <p class="idi">@rashtrapatibhvn &middot  1h</p>
+                            </div>
+                            <img src="mor.png" alt="more" width="23px" height="23px" class="morepic">
+                        </div>
+                        <p>President Droupadi Murmu presents Padma Shri to Shri Pataet Kumar Sahu for Agriculture. A traditional herbalist (Vaidya) from Odisha, he helped in popularising  & planting herbal medicines. He was part of team that discovered 350 herbal plants of rare varieties in Ghana Forest.</p>
+                        <img src="fourth.jpeg" alt="post" width="100%" class="posting">
+                        <div class="likebar">
+                            <div class="likebarblock1">
+                                <div class="imgdiv1">
+                                    <div class="imgdiv11"></div>
+                                </div>
+                                <p>10</p>
+                            </div>
+                            <div class="likebarblock2">
+                                <div class="imgdiv2">
+                                    <div class="imgdiv21"></div>
+                                </div>
+                                <p>72</p>
+                            </div>
+                            <div class="likebarblock3">
+                                <div class="imgdiv3">
+                                    <div class="imgdiv31"></div>
+                                </div>
+                                <p>403</p>
+                            </div>
+                            <div class="likebarblock4">
+                                <div class="imgdiv4">
+                                    <div class="imgdiv41"></div>
+                                </div>
+                                <p>11.3K</p>
+                            </div>
+                            <div class="likebarblock5">
+                                <div class="imgdiv5">
+                                    <div class="imgdiv51"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="incard">
+                    <img src="fivepic.jpg" alt="java" width="45px" height="45px" class="carduserpic">
+                    <div class="leftoftweet">
+                        <div class="carduserid">
+                            <div class="carduseridinner">
+                                <p>ANI<img src="verifiedg.png" alt="verified" width="20px" height="20px"></p>
+                                <p class="idi">@ANI &middot  3h</p>
+                            </div>
+                            <img src="mor.png" alt="more" width="23px" height="23px" class="morepic">
+                        </div>
+                        <p>"I am shocked and hurt by Kichha Suddep's statement," says actor Prakash Raj on Kannada actor Kichcha Sudeep extending his support to BJP for the upcoming <b style="color: #009cfd; font-weight: 400;" class="showpara">#KarnatakaAssemblyElection2023</b> </p>
+                        <img src="five.png" alt="post" width="100%" class="posting">
+                        <div class="likebar">
+                            <div class="likebarblock1">
+                                <div class="imgdiv1">
+                                    <div class="imgdiv11"></div>
+                                </div>
+                                <p>1046</p>
+                            </div>
+                            <div class="likebarblock2">
+                                <div class="imgdiv2">
+                                    <div class="imgdiv21"></div>
+                                </div>
+                                <p>728</p>
+                            </div>
+                            <div class="likebarblock3">
+                                <div class="imgdiv3">
+                                    <div class="imgdiv31"></div>
+                                </div>
+                                <p>4,941</p>
+                            </div>
+                            <div class="likebarblock4">
+                                <div class="imgdiv4">
+                                    <div class="imgdiv41"></div>
+                                </div>
+                                <p>421.9K</p>
+                            </div>
+                            <div class="likebarblock5">
+                                <div class="imgdiv5">
+                                    <div class="imgdiv51"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="followbar">
+            <div class="upper">
+                <div class="searchbar">
+                    <form action="#">
+                        <input type="text" placeholder="Search Twitter" name="search"  id="bar">
+                    </form>
+                </div>
+            </div>
+            <div class="trending">
+                <h3>Whats's happening</h3>
+                <div class="block1">
+                    <div class="texti">
+                        <p>NBA &middot LIVE</p>
+                        <p><b>Mavericks at Hornets</b></p>
+                    </div>
+                    <img src="mba.jpg" alt="mba">
+                </div>
+                <div class="block2">
+                    <div class="block2in">
+                        <p>Entertainment &middot Trending</p>
+                        <p style="font-size: 15px;"><b>RIP Legend</b></p>
+                        <p>Trending with <a href="#">#innocent</a></p>
+                    </div>
+                    <img src="mor.png" alt="more" width="23px" height="23px">
+                </div>
+                <div class="block2">
+                    <div class="block2in">
+                        <p>Uttar Pradesh &middot Trending</p>
+                        <p style="font-size: 15px;"><b>#UPPolice</b></p>
+                        <p>6,249 Tweets</p>
+                    </div>
+                    <img src="mor.png" alt="more" width="23px" height="23px">
+                </div>
+                <div class="block2">
+                    <div class="block2in">
+                        <p>Entertainment &middot Trending</p>
+                        <p style="font-size: 15px;"><b>#KiaraAdvani</b></p>
+                        <p>1,249 Tweets</p>
+                    </div>
+                    <img src="mor.png" alt="more" width="23px" height="23px">
+                </div>
+                <div class="block2">
+                    <div class="block2in">
+                        <p>Politics &middot Trending</p>
+                        <p style="font-size: 15px;"><b>#BanSapaSarkar</b></p>
+                        <p>1.4m Tweets</p>
+                    </div>
+                    <img src="mor.png" alt="more" width="23px" height="23px" id="sapamore">
+                </div>
+                <div class="showmore">
+                    <p>Show more</p>
+                </div>
+            </div>
+            <div class="whotofolo">
+                <h3>Who to follow</h3>
+                <div class="block11">
+                    <img src="java.jpg" alt="java" width="45px" height="45px" class="userpic">
+                    <div class="just">
+                        <div class="userid">
+                            <p id="usernick1">Gaurav Pradhan <img src="verified.png" alt="" width="23px" height="23px"></p>
+                            <p id="usernick2">@OfficeofGDP</p>
+                        </div>
+                        <button onclick="myFunction(this)">Follow</button>
+                    </div>   
+                </div>
+                <div class="block11">
+                    <img src="modi.jpg" alt="java" width="45px" height="45px" class="userpic">
+                    <div class="just">
+                        <div class="userid">
+                            <p id="usernick1">Narendra Modi <img src="verifiedg.png" alt="" width="23px" height="23px"></p>
+                            <p id="usernick2">@Prime minister</p>
+                        </div>
+                        <button onclick="myFunction(this)" >Follow</button>
+                    </div>  
+                </div>
+                <div class="block11">
+                    <img src="shiva.png" alt="java" width="45px" height="45px" class="userpic">
+                    <div class="just">
+                        <div class="userid">
+                            <p id="usernick1">Shiva Yadav</p>
+                            <p id="usernick2">@Corruptionmanager</p>
+                        </div>
+                        <button onclick="myFunction(this)">Follow</button>
+                    </div>
+                </div>
+                <div class="showmore">
+                    <p>Show more</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="sty.js"></script>
+</body>
+</html>

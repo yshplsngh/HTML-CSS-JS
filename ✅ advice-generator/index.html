@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Advice generator app</title>
+    <style>
+      * {
+        font-family: "Manrope", sans-serif;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="bg-mncolor h-screen op flex justify-center items-center">
+      <div
+        class="box bg-boxcolor w-[90%] h-fit md:w-96 rounded-xl p-6 relative flex justify-center items-center flex-col">
+        <p  class="adviseno uppercase text-center op mt-4 text-neoncolor tracking-widest text-xs mob-pattern">
+          advice #<span id="nume" class="text-neoncolor tracking-widest text-xs"></span>
+        </p>
+
+        <p class="note text-whicolor op text-center text-3xl mt-7">
+          <span id="texr"></span>
+        </p>
+        <p
+          class="op bg-mob-pattern md:bg-win-pattern h-5 bg-center bg-no-repeat bg-cover my-10 w-full"
+        ></p>
+
+        <button
+          id="btn"
+          class="absolute -bottom-8 op rounded-full w-16 h-16 bg-neoncolor flex justify-center items-center"
+        >
+          <img src="/images/icon-dice.svg" alt="dice" />
+        </button>
+      </div>
+    </section>
+
+
+    <script>
+      const resultbox = document.querySelector("#texr");
+      const buttonbox = document.querySelector("#btn");
+      const advisen = document.querySelector('#nume');
+      // localStorage.setItem("val",5);
+      buttonbox.addEventListener("click", () => {
+        getAdvice();
+      });
+      window.onload = () => {
+        getAdvice();
+      };
+      function getAdvice() {
+        fetch("	https://api.adviceslip.com/advice")
+          .then((response) => {
+            return response.json();
+          })
+          .then((adviceData) => {
+            const Adviceobj = adviceData.slip;
+            resultbox.innerHTML = `<p>"${Adviceobj.advice}"</p>`;
+            var sett = localStorage.getItem("val");
+            advisen.textContent=sett;
+            var putval = parseInt(sett,10);
+            localStorage.setItem("val",putval+1);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    </script>
+
+  </body>
+</html>
